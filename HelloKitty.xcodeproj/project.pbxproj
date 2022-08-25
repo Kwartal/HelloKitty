@@ -12,7 +12,9 @@
 		712DD0E628B39C1F00CE0FE4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712DD0E528B39C1F00CE0FE4 /* MainViewController.swift */; };
 		712DD0EB28B39C1F00CE0FE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 712DD0EA28B39C1F00CE0FE4 /* Assets.xcassets */; };
 		712DD0EE28B39C1F00CE0FE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 712DD0EC28B39C1F00CE0FE4 /* LaunchScreen.storyboard */; };
-		7193940D28B3CB8B00E9AA2C /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7193940C28B3CB8B00E9AA2C /* CALayer.swift */; };
+		7193940D28B3CB8B00E9AA2C /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7193940C28B3CB8B00E9AA2C /* CALayer+.swift */; };
+		71A7FC4D28B667BC00CCFD04 /* CardsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A7FC4C28B667BC00CCFD04 /* CardsCollectionViewCell.swift */; };
+		71A7FC5428B66B7300CCFD04 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A7FC5328B66B7300CCFD04 /* Card.swift */; };
 		9BC0376CA00C731276650A22 /* Pods_HelloKitty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7B4DD072ED045C6A17AEEC /* Pods_HelloKitty.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +27,9 @@
 		712DD0EA28B39C1F00CE0FE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		712DD0ED28B39C1F00CE0FE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		712DD0EF28B39C1F00CE0FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7193940C28B3CB8B00E9AA2C /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		7193940C28B3CB8B00E9AA2C /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
+		71A7FC4C28B667BC00CCFD04 /* CardsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewCell.swift; sourceTree = "<group>"; };
+		71A7FC5328B66B7300CCFD04 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		E549E0238D9616C3C731FD99 /* Pods-HelloKitty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloKitty.release.xcconfig"; path = "Target Support Files/Pods-HelloKitty/Pods-HelloKitty.release.xcconfig"; sourceTree = "<group>"; };
 		EEF6C75F4F2B272C49546FD1 /* Pods-HelloKitty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloKitty.debug.xcconfig"; path = "Target Support Files/Pods-HelloKitty/Pods-HelloKitty.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,15 +75,57 @@
 		712DD0E028B39C1F00CE0FE4 /* HelloKitty */ = {
 			isa = PBXGroup;
 			children = (
-				712DD0E128B39C1F00CE0FE4 /* AppDelegate.swift */,
-				712DD0E328B39C1F00CE0FE4 /* SceneDelegate.swift */,
-				712DD0E528B39C1F00CE0FE4 /* MainViewController.swift */,
-				7193940C28B3CB8B00E9AA2C /* CALayer.swift */,
+				71A7FC4F28B66A2600CCFD04 /* SupportFiles */,
+				71A7FC5028B66A6300CCFD04 /* ViewControllers */,
+				71A7FC4E28B669EC00CCFD04 /* Extensions */,
+				71A7FC5128B66AD200CCFD04 /* Models */,
 				712DD0EA28B39C1F00CE0FE4 /* Assets.xcassets */,
 				712DD0EC28B39C1F00CE0FE4 /* LaunchScreen.storyboard */,
 				712DD0EF28B39C1F00CE0FE4 /* Info.plist */,
 			);
 			path = HelloKitty;
+			sourceTree = "<group>";
+		};
+		71A7FC4E28B669EC00CCFD04 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7193940C28B3CB8B00E9AA2C /* CALayer+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		71A7FC4F28B66A2600CCFD04 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				712DD0E128B39C1F00CE0FE4 /* AppDelegate.swift */,
+				712DD0E328B39C1F00CE0FE4 /* SceneDelegate.swift */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		71A7FC5028B66A6300CCFD04 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				712DD0E528B39C1F00CE0FE4 /* MainViewController.swift */,
+				71A7FC5228B66B5800CCFD04 /* Cell */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		71A7FC5128B66AD200CCFD04 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				71A7FC5328B66B7300CCFD04 /* Card.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		71A7FC5228B66B5800CCFD04 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				71A7FC4C28B667BC00CCFD04 /* CardsCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		DCF045213CF96A7E9198739A /* Pods */ = {
@@ -205,8 +251,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71A7FC4D28B667BC00CCFD04 /* CardsCollectionViewCell.swift in Sources */,
 				712DD0E628B39C1F00CE0FE4 /* MainViewController.swift in Sources */,
-				7193940D28B3CB8B00E9AA2C /* CALayer.swift in Sources */,
+				7193940D28B3CB8B00E9AA2C /* CALayer+.swift in Sources */,
+				71A7FC5428B66B7300CCFD04 /* Card.swift in Sources */,
 				712DD0E228B39C1F00CE0FE4 /* AppDelegate.swift in Sources */,
 				712DD0E428B39C1F00CE0FE4 /* SceneDelegate.swift in Sources */,
 			);
