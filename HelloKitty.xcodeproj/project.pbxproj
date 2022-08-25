@@ -15,6 +15,8 @@
 		7193940D28B3CB8B00E9AA2C /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7193940C28B3CB8B00E9AA2C /* CALayer+.swift */; };
 		71A7FC4D28B667BC00CCFD04 /* CardsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A7FC4C28B667BC00CCFD04 /* CardsCollectionViewCell.swift */; };
 		71A7FC5428B66B7300CCFD04 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A7FC5328B66B7300CCFD04 /* Card.swift */; };
+		71A7FC5628B803C600CCFD04 /* BlueKitty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A7FC5528B803C600CCFD04 /* BlueKitty.swift */; };
+		71A7FC5828B8052F00CCFD04 /* BlueKittyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A7FC5728B8052F00CCFD04 /* BlueKittyCollectionViewCell.swift */; };
 		9BC0376CA00C731276650A22 /* Pods_HelloKitty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7B4DD072ED045C6A17AEEC /* Pods_HelloKitty.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 		7193940C28B3CB8B00E9AA2C /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		71A7FC4C28B667BC00CCFD04 /* CardsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewCell.swift; sourceTree = "<group>"; };
 		71A7FC5328B66B7300CCFD04 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		71A7FC5528B803C600CCFD04 /* BlueKitty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueKitty.swift; sourceTree = "<group>"; };
+		71A7FC5728B8052F00CCFD04 /* BlueKittyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueKittyCollectionViewCell.swift; sourceTree = "<group>"; };
 		E549E0238D9616C3C731FD99 /* Pods-HelloKitty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloKitty.release.xcconfig"; path = "Target Support Files/Pods-HelloKitty/Pods-HelloKitty.release.xcconfig"; sourceTree = "<group>"; };
 		EEF6C75F4F2B272C49546FD1 /* Pods-HelloKitty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloKitty.debug.xcconfig"; path = "Target Support Files/Pods-HelloKitty/Pods-HelloKitty.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				71A7FC5328B66B7300CCFD04 /* Card.swift */,
+				71A7FC5528B803C600CCFD04 /* BlueKitty.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				71A7FC4C28B667BC00CCFD04 /* CardsCollectionViewCell.swift */,
+				71A7FC5728B8052F00CCFD04 /* BlueKittyCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -251,6 +257,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71A7FC5828B8052F00CCFD04 /* BlueKittyCollectionViewCell.swift in Sources */,
+				71A7FC5628B803C600CCFD04 /* BlueKitty.swift in Sources */,
 				71A7FC4D28B667BC00CCFD04 /* CardsCollectionViewCell.swift in Sources */,
 				712DD0E628B39C1F00CE0FE4 /* MainViewController.swift in Sources */,
 				7193940D28B3CB8B00E9AA2C /* CALayer+.swift in Sources */,
