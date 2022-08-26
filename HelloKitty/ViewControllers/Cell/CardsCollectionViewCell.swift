@@ -15,7 +15,6 @@ final class CardsCollectionViewCell: UICollectionViewCell {
     private lazy var subCardTitleLabel = UILabel()
     private lazy var cardImage = UIImageView()
     
-
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -34,7 +33,6 @@ final class CardsCollectionViewCell: UICollectionViewCell {
         subCardTitleLabel.textColor = card.subTitleLabelTextColor
         cardImage.image = UIImage(named: card.imageName)
         contentView.backgroundColor = card.color
-        
     }
 
 }
@@ -76,14 +74,12 @@ extension CardsCollectionViewCell {
             $0.leading.equalTo(mainCardTitleLabel)
             $0.trailing.equalTo(cardImage.snp.leading)
             $0.height.lessThanOrEqualTo(32)
-            
         }
         
         cardImage.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(5)
             $0.size.equalTo(100)
-            
         }
         
     }

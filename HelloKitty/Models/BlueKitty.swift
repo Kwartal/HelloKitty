@@ -20,9 +20,9 @@ struct BlueKitty {
 
 static let mockBlueKitty = [
     
-        BlueKitty.init(imageName: "", title: "Buy & sell cats"),
-        BlueKitty.init(imageName: "", title: "Buy & sell cats"),
-        BlueKitty.init(imageName: "", title: "Buy & sell cats")
+        BlueKitty.init(imageName: "Group1", title: "Buy & sell cats"),
+        BlueKitty.init(imageName: "Group2", title: "Create collections"),
+        BlueKitty.init(imageName: "Group3", title: "Breed adorable cats")
 
     ]
 }
