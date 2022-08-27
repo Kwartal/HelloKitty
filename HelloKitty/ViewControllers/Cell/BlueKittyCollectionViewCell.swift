@@ -13,6 +13,7 @@ final class BlueKittyCollectionViewCell: UICollectionViewCell {
     
     private lazy var nameImage = UIImageView()
     private lazy var titleLabel = UILabel()
+    private lazy var isBlueKittyButtonHidden = UIButton()
 
     
     override init(frame: CGRect) {
@@ -29,6 +30,7 @@ final class BlueKittyCollectionViewCell: UICollectionViewCell {
     func configure(blueKitty: BlueKitty) {
         nameImage.image = UIImage(named: blueKitty.imageName)
         titleLabel.text = blueKitty.title
+        isBlueKittyButtonHidden.isHidden = blueKitty.isKittyButtonHidden
     }
     
 }
@@ -37,6 +39,12 @@ extension BlueKittyCollectionViewCell {
     
     private func configureUI() {
         contentView.addSubview(nameImage)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(isBlueKittyButtonHidden)
+        titleLabel.numberOfLines = 0
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.font = .systemFont(ofSize: 13, weight: .regular)
+        isBlueKittyButtonHidden.setImage(UIImage(named: "Union"), for: .normal)
     }
     
     private func createConstraints() {
@@ -45,6 +53,15 @@ extension BlueKittyCollectionViewCell {
             $0.top.leading.equalToSuperview().inset(12)
             $0.bottom.equalToSuperview().inset(36)
             $0.trailing.equalToSuperview().inset(85)
+        }
+        
+        titleLabel.snp.makeConstraints {
+            $0.top.equalTo(nameImage.snp.bottom).inset(8)
+            $0.leading.bottom.trailing.equalToSuperview().offset(12)
+        }
+        
+        isBlueKittyButtonHidden.snp.makeConstraints {
+            $0.top.trailing.equalToSuperview().inset(13)
         }
         
     }

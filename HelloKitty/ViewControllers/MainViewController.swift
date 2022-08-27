@@ -14,7 +14,7 @@ final class MainViewController: UIViewController {
     
     //MARK: - UI Elements
     private lazy var mainTitleLabel = UILabel()
-    private lazy var mainScrollView = UIScrollView()
+    private lazy var mainScrollView = ScrollView()
     private lazy var mainTitleImage = UIImageView()
     private lazy var powerKittensView = UIView()
     private lazy var powerKittensLabel = UILabel()
@@ -28,6 +28,7 @@ final class MainViewController: UIViewController {
     
     private lazy var blueKittyCollectionView = UICollectionView(frame: .zero, collectionViewLayout: makeBlueKittyCollectionViewFlowLayout())
     
+    private lazy var collectionsLabel = UILabel()
     
     
     
@@ -39,6 +40,9 @@ final class MainViewController: UIViewController {
         setupSubviews()
         configureConstraints()
         configureCollectionView()
+        
+
+        
     }
 }
 extension MainViewController {
@@ -67,6 +71,11 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BlueKittyCollectionViewCell.identifier, for: indexPath) as? BlueKittyCollectionViewCell else { return UICollectionViewCell(frame: .zero) }
             cell.configure(blueKitty: BlueKitty.mockBlueKitty[indexPath.row])
             cell.contentView.layer.cornerRadius = 8
+            cell.backgroundColor = .white
+            cell.layer.shadowColor = UIColor.gray.cgColor
+            cell.layer.shadowOpacity = 0.3
+            cell.layer.shadowOffset = CGSize.zero
+            cell.layer.shadowRadius = 6
             return cell
         } 
         
@@ -86,16 +95,17 @@ extension MainViewController {
         view.addSubview(mainTitleLabel)
         view.addSubview(mainTitleImage)
         view.addSubview(mainScrollView)
-        mainScrollView.addSubview(powerKittensView)
+        mainScrollView.contentView.addSubview(powerKittensView)
         powerKittensView.addSubview(powerKittensLabel)
         powerKittensView.addSubview(powerKittensCounterLabel)
         powerKittensView.addSubview(powerKittensImageView)
         
         
-        mainScrollView.addSubview(cardsCollectionView)
-        mainScrollView.addSubview(getYourOwnKittyLabel)
-        mainScrollView.addSubview(rightArrowButton)
-        mainScrollView.addSubview(blueKittyCollectionView)
+        mainScrollView.contentView.addSubview(cardsCollectionView)
+        mainScrollView.contentView.addSubview(getYourOwnKittyLabel)
+        mainScrollView.contentView.addSubview(rightArrowButton)
+        mainScrollView.contentView.addSubview(blueKittyCollectionView)
+        mainScrollView.contentView.addSubview(collectionsLabel)
         
     }
     
@@ -105,7 +115,7 @@ extension MainViewController {
         mainTitleLabel.text = "Cryptokitties"
         mainTitleLabel.font = .systemFont(ofSize: 24, weight: .heavy)
         
-        mainScrollView.backgroundColor = .red
+        mainScrollView.backgroundColor = .white
         
         mainTitleImage.image = UIImage(named: "Title Image Kitty")
         
@@ -126,7 +136,11 @@ extension MainViewController {
         getYourOwnKittyLabel.text = "Ger Your Own Kitty"
         getYourOwnKittyLabel.font = .systemFont(ofSize: 16, weight: .semibold)
         
-        rightArrowButton.setImage(UIImage(systemName: "backButton"), for: .normal)
+        rightArrowButton.setImage(UIImage(named: "backButton"), for: .normal)
+        rightArrowButton.contentMode = .scaleAspectFill
+        
+        collectionsLabel.text = "Collection"
+        collectionsLabel.font = .systemFont(ofSize: 16, weight: .bold)
 
     }
     
@@ -184,8 +198,9 @@ extension MainViewController {
         }
         
         rightArrowButton.snp.makeConstraints {
-            $0.trailing.equalToSuperview().offset(16)
+            $0.trailing.equalTo(view).inset(16)
             $0.top.equalTo(cardsCollectionView.snp.bottom).offset(40)
+            $0.size.equalTo(16)
         }
         
         blueKittyCollectionView.snp.makeConstraints {
@@ -193,6 +208,13 @@ extension MainViewController {
             $0.top.equalTo(getYourOwnKittyLabel.snp.bottom).offset(16)
             $0.height.equalTo(112)
         }
+        
+        collectionsLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(16)
+            $0.top.equalTo(blueKittyCollectionView.snp.bottom).offset(600)
+        }
+        
+        
     }
     
     func makeCardsCollectionViewFlowLayout() -> UICollectionViewFlowLayout {
@@ -217,6 +239,4 @@ extension MainViewController {
         return layout
     }
 }
-
-
 
