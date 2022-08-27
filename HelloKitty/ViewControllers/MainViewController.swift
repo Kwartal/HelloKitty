@@ -10,11 +10,10 @@ import SnapKit
 
 final class MainViewController: UIViewController {
     
-    
-    
     //MARK: - UI Elements
     private lazy var mainTitleLabel = UILabel()
-    private lazy var mainScrollView = ScrollView()
+    private lazy var mainScrollView = UIScrollView()
+    private lazy var mainView = UIView()
     private lazy var mainTitleImage = UIImageView()
     private lazy var powerKittensView = UIView()
     private lazy var powerKittensLabel = UILabel()
@@ -30,9 +29,6 @@ final class MainViewController: UIViewController {
     
     private lazy var collectionsLabel = UILabel()
     
-    
-    
-    
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +36,6 @@ final class MainViewController: UIViewController {
         setupSubviews()
         configureConstraints()
         configureCollectionView()
-        
-
-        
     }
 }
 extension MainViewController {
@@ -54,7 +47,6 @@ extension MainViewController {
         blueKittyCollectionView.register(BlueKittyCollectionViewCell.self, forCellWithReuseIdentifier: BlueKittyCollectionViewCell.identifier)
         blueKittyCollectionView.delegate = self
         blueKittyCollectionView.dataSource = self
-        
     }
 }
 
@@ -95,17 +87,19 @@ extension MainViewController {
         view.addSubview(mainTitleLabel)
         view.addSubview(mainTitleImage)
         view.addSubview(mainScrollView)
-        mainScrollView.contentView.addSubview(powerKittensView)
+        mainScrollView.addSubview(mainView)
+        mainView.addSubview(powerKittensView)
         powerKittensView.addSubview(powerKittensLabel)
         powerKittensView.addSubview(powerKittensCounterLabel)
         powerKittensView.addSubview(powerKittensImageView)
         
         
-        mainScrollView.contentView.addSubview(cardsCollectionView)
-        mainScrollView.contentView.addSubview(getYourOwnKittyLabel)
-        mainScrollView.contentView.addSubview(rightArrowButton)
-        mainScrollView.contentView.addSubview(blueKittyCollectionView)
-        mainScrollView.contentView.addSubview(collectionsLabel)
+        mainView.addSubview(cardsCollectionView)
+        mainView.addSubview(getYourOwnKittyLabel)
+        mainView.addSubview(rightArrowButton)
+        mainView.addSubview(blueKittyCollectionView)
+        mainView.addSubview(collectionsLabel)
+        mainView.backgroundColor = .red
         
     }
     
@@ -156,8 +150,12 @@ extension MainViewController {
         mainScrollView.snp.makeConstraints {
             $0.leading.trailing.bottom.equalToSuperview()
             $0.top.equalTo(mainTitleLabel.snp.bottom).offset(24)
-            
         }
+        
+        mainView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.height.equalToSuperview().priority(.low)        }
         
         mainTitleImage.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(16)
@@ -205,13 +203,13 @@ extension MainViewController {
         
         blueKittyCollectionView.snp.makeConstraints {
             $0.leading.trailing.equalTo(view)
-            $0.top.equalTo(getYourOwnKittyLabel.snp.bottom).offset(16)
+            $0.top.equalTo(getYourOwnKittyLabel.snp.bottom).offset(450)
             $0.height.equalTo(112)
         }
         
         collectionsLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
-            $0.top.equalTo(blueKittyCollectionView.snp.bottom).offset(600)
+            $0.top.equalTo(blueKittyCollectionView.snp.bottom).offset(32)
         }
         
         

@@ -95,6 +95,7 @@
 		71A7FC4E28B669EC00CCFD04 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				71723DCC28BA0EDC00B1EB0E /* ScrollView.swift */,
 				7193940C28B3CB8B00E9AA2C /* CALayer+.swift */,
 			);
 			path = Extensions;
@@ -131,7 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				71A7FC4C28B667BC00CCFD04 /* CardsCollectionViewCell.swift */,
-				71723DCC28BA0EDC00B1EB0E /* ScrollView.swift */,
 				71A7FC5728B8052F00CCFD04 /* BlueKittyCollectionViewCell.swift */,
 			);
 			path = Cell;
