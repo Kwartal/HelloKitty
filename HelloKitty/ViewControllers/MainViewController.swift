@@ -98,9 +98,7 @@ extension MainViewController {
         mainView.addSubview(getYourOwnKittyLabel)
         mainView.addSubview(rightArrowButton)
         mainView.addSubview(blueKittyCollectionView)
-        mainView.addSubview(collectionsLabel)
-        mainView.backgroundColor = .red
-        
+        mainView.addSubview(collectionsLabel)        
         
     }
     
@@ -111,7 +109,7 @@ extension MainViewController {
         mainTitleLabel.font = .systemFont(ofSize: 24, weight: .heavy)
         
         mainScrollView.backgroundColor = .white
-        mainScrollView.contentSize = CGSize(width: 0, height: 1000)
+        mainScrollView.contentSize = CGSize(width: 0, height: 921)
         
         mainTitleImage.image = UIImage(named: "Title Image Kitty")
         
@@ -155,10 +153,7 @@ extension MainViewController {
         }
         
         mainView.snp.makeConstraints {
-//            $0.leading.trailing.equalTo(view)
-//            $0.top.equalToSuperview()
-            $0.height.equalToSuperview()
-            $0.width.equalTo(view)
+            $0.size.equalToSuperview()
         }
         
         mainTitleImage.snp.makeConstraints {
@@ -201,13 +196,13 @@ extension MainViewController {
         
         rightArrowButton.snp.makeConstraints {
             $0.trailing.equalTo(view).inset(16)
-            $0.top.equalTo(cardsCollectionView.snp.bottom).offset(40)
+            $0.top.equalTo(cardsCollectionView.snp.bottom).offset(42)
             $0.size.equalTo(16)
         }
         
         blueKittyCollectionView.snp.makeConstraints {
             $0.leading.trailing.equalTo(view)
-            $0.top.equalTo(getYourOwnKittyLabel.snp.bottom).offset(450)
+            $0.top.equalTo(getYourOwnKittyLabel.snp.bottom).offset(16)
             $0.height.equalTo(112)
         }
         
