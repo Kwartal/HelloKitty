@@ -12,8 +12,8 @@ final class MainViewController: UIViewController {
     
     //MARK: - UI Elements
     private lazy var mainTitleLabel = UILabel()
-    private lazy var mainScrollView = UIScrollView()
-    private lazy var mainView = UIView()
+    private lazy var scrollView = UIScrollView()
+    private lazy var scrollContentView = UIView()
     private lazy var mainTitleImage = UIImageView()
     private lazy var powerKittensView = UIView()
     private lazy var powerKittensLabel = UILabel()
@@ -31,6 +31,12 @@ final class MainViewController: UIViewController {
     private lazy var collectionsButton = UIButton()
     
     private lazy var pinkKittyCollectionView = UICollectionView(frame: .zero, collectionViewLayout: makePinkKittyCollectionViewFlowLayout())
+    private lazy var startYourDigitalCatCollectinImageView = UIImageView()
+    private lazy var startYourDigitalCatCollectinLabel = UILabel()
+    
+    private lazy var cryptoCurrencyLabel = UILabel()
+    private lazy var cryptoCurrencyButton = UIButton()
+    
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -105,22 +111,26 @@ extension MainViewController {
     private func addSubviews() {
         view.addSubview(mainTitleLabel)
         view.addSubview(mainTitleImage)
-        view.addSubview(mainScrollView)
-        mainScrollView.addSubview(mainView)
-        mainView.addSubview(powerKittensView)
+        view.addSubview(scrollView)
+        scrollView.addSubview(scrollContentView)
+        scrollContentView.addSubview(powerKittensView)
         powerKittensView.addSubview(powerKittensLabel)
         powerKittensView.addSubview(powerKittensCounterLabel)
         powerKittensView.addSubview(powerKittensImageView)
         
         
-        mainView.addSubview(cardsCollectionView)
-        mainView.addSubview(getYourOwnKittyLabel)
-        mainView.addSubview(getYourOwnKittyButton)
-        mainView.addSubview(blueKittyCollectionView)
-        mainView.addSubview(collectionsLabel)
-        mainView.addSubview(collectionsButton)
-        mainView.addSubview(pinkKittyCollectionView)
-
+        scrollContentView.addSubview(cardsCollectionView)
+        scrollContentView.addSubview(getYourOwnKittyLabel)
+        scrollContentView.addSubview(getYourOwnKittyButton)
+        scrollContentView.addSubview(blueKittyCollectionView)
+        scrollContentView.addSubview(collectionsLabel)
+        scrollContentView.addSubview(collectionsButton)
+        scrollContentView.addSubview(pinkKittyCollectionView)
+        scrollContentView.addSubview(startYourDigitalCatCollectinImageView)
+        startYourDigitalCatCollectinImageView.addSubview(startYourDigitalCatCollectinLabel)
+        scrollContentView.addSubview(cryptoCurrencyLabel)
+        scrollContentView.addSubview(cryptoCurrencyLabel)
+        
         
     }
     
@@ -130,8 +140,8 @@ extension MainViewController {
         mainTitleLabel.text = "Cryptokitties"
         mainTitleLabel.font = .systemFont(ofSize: 24, weight: .heavy)
         
-        mainScrollView.backgroundColor = .white
-        mainScrollView.contentSize = CGSize(width: 0, height: 921)
+        scrollView.backgroundColor = .white
+        scrollView.contentSize = CGSize(width: 0, height: 921)
         
         mainTitleImage.image = UIImage(named: "Title Image Kitty")
         
@@ -160,6 +170,14 @@ extension MainViewController {
         
         collectionsButton.setImage(UIImage(named: "backButton"), for: .normal)
         collectionsButton.contentMode = .scaleAspectFill
+        
+        startYourDigitalCatCollectinImageView.image = UIImage(named: "startYourDigitalCatCollection")
+        
+        startYourDigitalCatCollectinLabel.numberOfLines = 0
+        startYourDigitalCatCollectinLabel.text = "Start Your Digital Cat Collectin"
+        startYourDigitalCatCollectinLabel.textColor = .white
+        startYourDigitalCatCollectinLabel.font = .systemFont(ofSize: 16, weight: .bold)
+        startYourDigitalCatCollectinLabel.adjustsFontSizeToFitWidth = true
 
     }
     
@@ -172,12 +190,12 @@ extension MainViewController {
             $0.top.equalToSuperview().offset(60)
         }
         
-        mainScrollView.snp.makeConstraints {
+        scrollView.snp.makeConstraints {
             $0.leading.trailing.bottom.equalToSuperview()
             $0.top.equalTo(mainTitleLabel.snp.bottom).offset(24)
         }
         
-        mainView.snp.makeConstraints {
+        scrollContentView.snp.makeConstraints {
             $0.size.equalToSuperview()
         }
         
@@ -248,6 +266,18 @@ extension MainViewController {
             $0.height.equalTo(112)
         }
         
+        startYourDigitalCatCollectinImageView.snp.makeConstraints {
+            $0.top.equalTo(pinkKittyCollectionView.snp.bottom).offset(16)
+            $0.leading.trailing.equalToSuperview().inset(16)
+        }
+        
+        startYourDigitalCatCollectinLabel.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview().inset(24)
+            $0.leading.equalToSuperview().inset(16)
+            $0.trailing.equalToSuperview().inset(210)
+        }
+        
+        
         
     }
     
@@ -278,7 +308,7 @@ extension MainViewController {
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(
             width: 135,
-            height: 88
+            height: 104
         )
         layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         return layout

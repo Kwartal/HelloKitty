@@ -13,7 +13,7 @@ final class PinkKittyCollectionViewCell: UICollectionViewCell {
     
     private lazy var nameImage = UIImageView()
     private lazy var titleLabel = UILabel()
-    private lazy var isPinkKittyButtonHidden = UIButton()
+    private lazy var pinkKittyButton = UIButton()
 
 
     override init(frame: CGRect) {
@@ -30,7 +30,7 @@ final class PinkKittyCollectionViewCell: UICollectionViewCell {
     func configure(pinkKitty: PinkKitty) {
         nameImage.image = UIImage(named: pinkKitty.imageName)
         titleLabel.text = pinkKitty.title
-        isPinkKittyButtonHidden.isHidden = pinkKitty.isKittyButtonHidden
+        pinkKittyButton.isHidden = pinkKitty.isKittyButtonHidden
     }
 
 }
@@ -42,28 +42,32 @@ extension PinkKittyCollectionViewCell {
     private func configureUI() {
         contentView.addSubview(nameImage)
         contentView.addSubview(titleLabel)
-        contentView.addSubview(isPinkKittyButtonHidden)
+        contentView.addSubview(pinkKittyButton)
+        
+//        nameImage.contentMode = .scaleAspectFit
+        
         titleLabel.numberOfLines = 0
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.font = .systemFont(ofSize: 13, weight: .regular)
         
-        isPinkKittyButtonHidden.setImage(UIImage(named: "Union"), for: .normal)
+        pinkKittyButton.setImage(UIImage(named: "Union"), for: .normal)
+        
     }
 
     private func createConstraints() {
         
         nameImage.snp.makeConstraints {
             $0.top.leading.equalToSuperview().inset(12)
-            $0.bottom.equalToSuperview().inset(36)
+            $0.bottom.equalToSuperview().inset(52)
             $0.trailing.equalToSuperview().inset(85)
         }
-        
+//        nameImage.backgroundColor = .red
         titleLabel.snp.makeConstraints {
-            $0.top.equalTo(nameImage.snp.bottom).inset(8)
-            $0.leading.bottom.trailing.equalToSuperview().offset(12)
+            $0.leading.trailing.equalToSuperview().inset(12)
+            $0.top.equalTo(nameImage.snp.bottom).offset(8)
         }
         
-        isPinkKittyButtonHidden.snp.makeConstraints {
+        pinkKittyButton.snp.makeConstraints {
             $0.top.trailing.equalToSuperview().inset(13)
         }
     }
