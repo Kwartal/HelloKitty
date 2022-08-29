@@ -23,11 +23,13 @@ final class MainViewController: UIViewController {
     private lazy var cardsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: makeCardsCollectionViewFlowLayout())
     
     private lazy var getYourOwnKittyLabel = UILabel()
-    private lazy var rightArrowButton = UIButton()
+    private lazy var getYourOwnKittyButton = UIButton()
     
     private lazy var blueKittyCollectionView = UICollectionView(frame: .zero, collectionViewLayout: makeBlueKittyCollectionViewFlowLayout())
     
     private lazy var collectionsLabel = UILabel()
+    private lazy var collectionsButton = UIButton()
+
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -96,9 +98,10 @@ extension MainViewController {
         
         mainView.addSubview(cardsCollectionView)
         mainView.addSubview(getYourOwnKittyLabel)
-        mainView.addSubview(rightArrowButton)
+        mainView.addSubview(getYourOwnKittyButton)
         mainView.addSubview(blueKittyCollectionView)
-        mainView.addSubview(collectionsLabel)        
+        mainView.addSubview(collectionsLabel)
+        mainView.addSubview(collectionsButton)
         
     }
     
@@ -130,11 +133,14 @@ extension MainViewController {
         getYourOwnKittyLabel.text = "Ger Your Own Kitty"
         getYourOwnKittyLabel.font = .systemFont(ofSize: 16, weight: .semibold)
         
-        rightArrowButton.setImage(UIImage(named: "backButton"), for: .normal)
-        rightArrowButton.contentMode = .scaleAspectFill
+        getYourOwnKittyButton.setImage(UIImage(named: "backButton"), for: .normal)
+        getYourOwnKittyButton.contentMode = .scaleAspectFill
         
         collectionsLabel.text = "Collection"
         collectionsLabel.font = .systemFont(ofSize: 16, weight: .bold)
+        
+        collectionsButton.setImage(UIImage(named: "backButton"), for: .normal)
+        collectionsButton.contentMode = .scaleAspectFill
 
     }
     
@@ -194,7 +200,7 @@ extension MainViewController {
             $0.top.equalTo(cardsCollectionView.snp.bottom).offset(40)
         }
         
-        rightArrowButton.snp.makeConstraints {
+        getYourOwnKittyButton.snp.makeConstraints {
             $0.trailing.equalTo(view).inset(16)
             $0.top.equalTo(cardsCollectionView.snp.bottom).offset(42)
             $0.size.equalTo(16)
@@ -209,6 +215,12 @@ extension MainViewController {
         collectionsLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
             $0.top.equalTo(blueKittyCollectionView.snp.bottom).offset(32)
+        }
+        
+        collectionsButton.snp.makeConstraints {
+            $0.trailing.equalTo(view).inset(16)
+            $0.top.equalTo(blueKittyCollectionView.snp.bottom).offset(34)
+            $0.size.equalTo(16)
         }
         
         
