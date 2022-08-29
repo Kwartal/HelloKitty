@@ -22,9 +22,9 @@ struct PinkKitty {
     
     static let mockPinkKitty = [
         
-        BlueKitty(imageName: "PinkKitty1", title: "Hackatao", isKittyButtonHidden: false),
-        BlueKitty(imageName: "PinkKitty2", title: "Onyx, Shale, Egyptiankohl", isKittyButtonHidden: false),
-        BlueKitty(imageName: "PinkKitty3", title: "Kitties", isKittyButtonHidden: true)
+        PinkKitty(imageName: "PinkKitty1", title: "Hackatao", isKittyButtonHidden: false),
+        PinkKitty(imageName: "PinkKitty2", title: "Onyx, Shale, Egyptiankohl", isKittyButtonHidden: false),
+        PinkKitty(imageName: "PinkKitty3", title: "Kitties", isKittyButtonHidden: true)
         
     ]
     

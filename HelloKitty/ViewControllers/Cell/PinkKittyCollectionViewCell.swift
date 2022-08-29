@@ -7,20 +7,17 @@
 
 import UIKit
 
-import UIKit
-
 final class PinkKittyCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "PinkKittyCollectionViewCell"
     
     private lazy var nameImage = UIImageView()
     private lazy var titleLabel = UILabel()
-    private lazy var isBlueKittyButtonHidden = UIButton()
+    private lazy var isPinkKittyButtonHidden = UIButton()
 
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-
         configureUI()
         createConstraints()
     }
@@ -33,7 +30,7 @@ final class PinkKittyCollectionViewCell: UICollectionViewCell {
     func configure(pinkKitty: PinkKitty) {
         nameImage.image = UIImage(named: pinkKitty.imageName)
         titleLabel.text = pinkKitty.title
-        isBlueKittyButtonHidden.isHidden = pinkKitty.isKittyButtonHidden
+        isPinkKittyButtonHidden.isHidden = pinkKitty.isKittyButtonHidden
     }
 
 }
@@ -45,11 +42,12 @@ extension PinkKittyCollectionViewCell {
     private func configureUI() {
         contentView.addSubview(nameImage)
         contentView.addSubview(titleLabel)
-        contentView.addSubview(isBlueKittyButtonHidden)
+        contentView.addSubview(isPinkKittyButtonHidden)
         titleLabel.numberOfLines = 0
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.font = .systemFont(ofSize: 13, weight: .regular)
-        isBlueKittyButtonHidden.setImage(UIImage(named: "Union"), for: .normal)
+        
+        isPinkKittyButtonHidden.setImage(UIImage(named: "Union"), for: .normal)
     }
 
     private func createConstraints() {
@@ -65,7 +63,7 @@ extension PinkKittyCollectionViewCell {
             $0.leading.bottom.trailing.equalToSuperview().offset(12)
         }
         
-        isBlueKittyButtonHidden.snp.makeConstraints {
+        isPinkKittyButtonHidden.snp.makeConstraints {
             $0.top.trailing.equalToSuperview().inset(13)
         }
     }

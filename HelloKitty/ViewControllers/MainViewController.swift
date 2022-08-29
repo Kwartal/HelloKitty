@@ -29,7 +29,8 @@ final class MainViewController: UIViewController {
     
     private lazy var collectionsLabel = UILabel()
     private lazy var collectionsButton = UIButton()
-
+    
+    private lazy var pinkKittyCollectionView = UICollectionView(frame: .zero, collectionViewLayout: makePinkKittyCollectionViewFlowLayout())
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -49,6 +50,10 @@ extension MainViewController {
         blueKittyCollectionView.register(BlueKittyCollectionViewCell.self, forCellWithReuseIdentifier: BlueKittyCollectionViewCell.identifier)
         blueKittyCollectionView.delegate = self
         blueKittyCollectionView.dataSource = self
+    
+        pinkKittyCollectionView.register(PinkKittyCollectionViewCell.self, forCellWithReuseIdentifier: PinkKittyCollectionViewCell.identifier)
+        pinkKittyCollectionView.delegate = self
+        pinkKittyCollectionView.dataSource = self
     }
 }
 
@@ -73,10 +78,22 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             return cell
         } 
         
-        else {
+        else if(collectionView == cardsCollectionView)
+        {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardsCollectionViewCell.identifier, for: indexPath) as? CardsCollectionViewCell else { return UICollectionViewCell(frame: .zero) }
             cell.configure(card: Card.mockCardsData[indexPath.row])
             cell.contentView.layer.cornerRadius = 8
+            return cell
+        }
+        else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PinkKittyCollectionViewCell.identifier, for: indexPath) as? PinkKittyCollectionViewCell else { return UICollectionViewCell(frame: .zero) }
+            cell.configure(pinkKitty: PinkKitty.mockPinkKitty[indexPath.row])
+            cell.contentView.layer.cornerRadius = 8
+            cell.backgroundColor = .white
+            cell.layer.shadowColor = UIColor.gray.cgColor
+            cell.layer.shadowOpacity = 0.3
+            cell.layer.shadowOffset = CGSize.zero
+            cell.layer.shadowRadius = 6
             return cell
         }
     }
@@ -102,6 +119,8 @@ extension MainViewController {
         mainView.addSubview(blueKittyCollectionView)
         mainView.addSubview(collectionsLabel)
         mainView.addSubview(collectionsButton)
+        mainView.addSubview(pinkKittyCollectionView)
+
         
     }
     
@@ -223,6 +242,12 @@ extension MainViewController {
             $0.size.equalTo(16)
         }
         
+        pinkKittyCollectionView.snp.makeConstraints {
+            $0.leading.trailing.equalTo(view)
+            $0.top.equalTo(collectionsLabel.snp.bottom).offset(16)
+            $0.height.equalTo(112)
+        }
+        
         
     }
     
@@ -238,6 +263,17 @@ extension MainViewController {
     }
     
     func makeBlueKittyCollectionViewFlowLayout() -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(
+            width: 135,
+            height: 88
+        )
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        return layout
+    }
+    
+    func makePinkKittyCollectionViewFlowLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(
