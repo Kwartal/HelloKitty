@@ -14,6 +14,7 @@
 		712DD0EE28B39C1F00CE0FE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 712DD0EC28B39C1F00CE0FE4 /* LaunchScreen.storyboard */; };
 		71723DCD28BA0EDC00B1EB0E /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71723DCC28BA0EDC00B1EB0E /* ScrollView.swift */; };
 		7193940D28B3CB8B00E9AA2C /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7193940C28B3CB8B00E9AA2C /* CALayer+.swift */; };
+		719394A828BCC8BC00A1EBBD /* PinkKitty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719394A728BCC8BC00A1EBBD /* PinkKitty.swift */; };
 		71A7FC4D28B667BC00CCFD04 /* CardsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A7FC4C28B667BC00CCFD04 /* CardsCollectionViewCell.swift */; };
 		71A7FC5428B66B7300CCFD04 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A7FC5328B66B7300CCFD04 /* Card.swift */; };
 		71A7FC5628B803C600CCFD04 /* BlueKitty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A7FC5528B803C600CCFD04 /* BlueKitty.swift */; };
@@ -32,6 +33,7 @@
 		712DD0EF28B39C1F00CE0FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71723DCC28BA0EDC00B1EB0E /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		7193940C28B3CB8B00E9AA2C /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
+		719394A728BCC8BC00A1EBBD /* PinkKitty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinkKitty.swift; sourceTree = "<group>"; };
 		71A7FC4C28B667BC00CCFD04 /* CardsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewCell.swift; sourceTree = "<group>"; };
 		71A7FC5328B66B7300CCFD04 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		71A7FC5528B803C600CCFD04 /* BlueKitty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueKitty.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				71A7FC5328B66B7300CCFD04 /* Card.swift */,
 				71A7FC5528B803C600CCFD04 /* BlueKitty.swift */,
+				719394A728BCC8BC00A1EBBD /* PinkKitty.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				71A7FC5828B8052F00CCFD04 /* BlueKittyCollectionViewCell.swift in Sources */,
 				71A7FC5628B803C600CCFD04 /* BlueKitty.swift in Sources */,
 				71A7FC4D28B667BC00CCFD04 /* CardsCollectionViewCell.swift in Sources */,
+				719394A828BCC8BC00A1EBBD /* PinkKitty.swift in Sources */,
 				712DD0E628B39C1F00CE0FE4 /* MainViewController.swift in Sources */,
 				7193940D28B3CB8B00E9AA2C /* CALayer+.swift in Sources */,
 				71A7FC5428B66B7300CCFD04 /* Card.swift in Sources */,
