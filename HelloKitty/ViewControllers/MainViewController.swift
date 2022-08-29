@@ -155,8 +155,7 @@ extension MainViewController {
         mainView.snp.makeConstraints {
             $0.leading.trailing.equalTo(view)
             $0.top.equalToSuperview()
-            $0.height.equalTo(500)
-            
+            $0.size.equalToSuperview()
         }
         
         mainTitleImage.snp.makeConstraints {
