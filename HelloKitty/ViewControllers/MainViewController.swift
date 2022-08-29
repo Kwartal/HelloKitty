@@ -101,6 +101,7 @@ extension MainViewController {
         mainView.addSubview(collectionsLabel)
         mainView.backgroundColor = .red
         
+        
     }
     
     private func setupSubviews() {
@@ -110,6 +111,7 @@ extension MainViewController {
         mainTitleLabel.font = .systemFont(ofSize: 24, weight: .heavy)
         
         mainScrollView.backgroundColor = .white
+        mainScrollView.contentSize = CGSize(width: 0, height: 1000)
         
         mainTitleImage.image = UIImage(named: "Title Image Kitty")
         
@@ -153,9 +155,10 @@ extension MainViewController {
         }
         
         mainView.snp.makeConstraints {
-            $0.leading.trailing.equalTo(view)
-            $0.top.equalToSuperview()
-            $0.size.equalToSuperview()
+//            $0.leading.trailing.equalTo(view)
+//            $0.top.equalToSuperview()
+            $0.height.equalToSuperview()
+            $0.width.equalTo(view)
         }
         
         mainTitleImage.snp.makeConstraints {
