@@ -276,9 +276,6 @@ extension MainViewController {
             $0.leading.equalToSuperview().inset(16)
             $0.trailing.equalToSuperview().inset(210)
         }
-        
-        
-        
     }
     
     func makeCardsCollectionViewFlowLayout() -> UICollectionViewFlowLayout {
