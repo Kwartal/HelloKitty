@@ -117,8 +117,7 @@ extension MainViewController {
         powerKittensView.addSubview(powerKittensLabel)
         powerKittensView.addSubview(powerKittensCounterLabel)
         powerKittensView.addSubview(powerKittensImageView)
-        
-        
+         
         scrollContentView.addSubview(cardsCollectionView)
         scrollContentView.addSubview(getYourOwnKittyLabel)
         scrollContentView.addSubview(getYourOwnKittyButton)
@@ -130,8 +129,7 @@ extension MainViewController {
         startYourDigitalCatCollectinImageView.addSubview(startYourDigitalCatCollectinLabel)
         scrollContentView.addSubview(cryptoCurrencyLabel)
         scrollContentView.addSubview(cryptoCurrencyLabel)
-        
-        
+
     }
     
     private func setupSubviews() {
