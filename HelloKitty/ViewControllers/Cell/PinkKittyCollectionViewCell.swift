@@ -15,7 +15,6 @@ final class PinkKittyCollectionViewCell: UICollectionViewCell {
     private lazy var titleLabel = UILabel()
     private lazy var pinkKittyButton = UIButton()
 
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
@@ -32,7 +31,6 @@ final class PinkKittyCollectionViewCell: UICollectionViewCell {
         titleLabel.text = pinkKitty.title
         pinkKittyButton.isHidden = pinkKitty.isKittyButtonHidden
     }
-
 }
 
 // MARK: - Layout
@@ -43,9 +41,7 @@ extension PinkKittyCollectionViewCell {
         contentView.addSubview(nameImage)
         contentView.addSubview(titleLabel)
         contentView.addSubview(pinkKittyButton)
-        
-//        nameImage.contentMode = .scaleAspectFit
-        
+                
         titleLabel.numberOfLines = 0
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.font = .systemFont(ofSize: 13, weight: .regular)
@@ -71,5 +67,4 @@ extension PinkKittyCollectionViewCell {
             $0.top.trailing.equalToSuperview().inset(13)
         }
     }
-
 }

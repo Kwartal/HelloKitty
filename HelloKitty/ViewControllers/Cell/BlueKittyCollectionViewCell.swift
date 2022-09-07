@@ -14,7 +14,6 @@ final class BlueKittyCollectionViewCell: UICollectionViewCell {
     private lazy var nameImage = UIImageView()
     private lazy var titleLabel = UILabel()
     private lazy var blueKittyButton = UIButton()
-
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,7 +31,6 @@ final class BlueKittyCollectionViewCell: UICollectionViewCell {
         titleLabel.text = blueKitty.title
         blueKittyButton.isHidden = blueKitty.isKittyButtonHidden
     }
-    
 }
 
 extension BlueKittyCollectionViewCell {
@@ -54,7 +52,7 @@ extension BlueKittyCollectionViewCell {
             $0.bottom.equalToSuperview().inset(36)
             $0.trailing.equalToSuperview().inset(85)
         }
-//        nameImage.backgroundColor = .red
+        //        nameImage.backgroundColor = .red
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(nameImage.snp.bottom).inset(8)
             $0.leading.bottom.trailing.equalToSuperview().offset(12)
@@ -63,8 +61,5 @@ extension BlueKittyCollectionViewCell {
         blueKittyButton.snp.makeConstraints {
             $0.top.trailing.equalToSuperview().inset(13)
         }
-        
     }
-    
-    
 }

@@ -69,7 +69,6 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         return Card.mockCardsData.count
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if (collectionView == blueKittyCollectionView) {
             print("collectionview:", indexPath.row)
