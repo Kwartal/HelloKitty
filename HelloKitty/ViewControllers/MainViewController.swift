@@ -37,6 +37,8 @@ final class MainViewController: UIViewController {
     private var cryptoCurrencyLabel = UILabel()
     private var cryptoCurrencyButton = UIButton()
     
+
+    
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -104,7 +106,6 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 }
 
-
 extension MainViewController {
     
     private func addSubviews() {
@@ -116,7 +117,7 @@ extension MainViewController {
         powerKittensView.addSubview(powerKittensLabel)
         powerKittensView.addSubview(powerKittensCounterLabel)
         powerKittensView.addSubview(powerKittensImageView)
-         
+        
         scrollContentView.addSubview(cardsCollectionView)
         scrollContentView.addSubview(getYourOwnKittyLabel)
         scrollContentView.addSubview(getYourOwnKittyButton)
@@ -127,7 +128,7 @@ extension MainViewController {
         scrollContentView.addSubview(startYourDigitalCatCollectinImageView)
         startYourDigitalCatCollectinImageView.addSubview(startYourDigitalCatCollectinLabel)
         scrollContentView.addSubview(cryptoCurrencyLabel)
-        scrollContentView.addSubview(cryptoCurrencyLabel)
+        scrollContentView.addSubview(cryptoCurrencyButton)
 
     }
     
@@ -164,7 +165,6 @@ extension MainViewController {
         
         collectionsLabel.text = "Collection"
         collectionsLabel.font = .systemFont(ofSize: 16, weight: .bold)
-        
         collectionsButton.setImage(UIImage(named: "backButton"), for: .normal)
         collectionsButton.contentMode = .scaleAspectFill
         
@@ -175,12 +175,14 @@ extension MainViewController {
         startYourDigitalCatCollectinLabel.textColor = .white
         startYourDigitalCatCollectinLabel.font = .systemFont(ofSize: 16, weight: .bold)
         startYourDigitalCatCollectinLabel.adjustsFontSizeToFitWidth = true
+        
+        cryptoCurrencyLabel.text = "Cryptocurrency rates"
+        cryptoCurrencyLabel.font = .systemFont(ofSize: 16, weight: .bold)
+        cryptoCurrencyButton.setImage(UIImage(named: "backButton"), for: .normal)
+        cryptoCurrencyButton.contentMode = .scaleAspectFill
 
     }
-    
-    
-    
-    
+
     private func configureConstraints() {
         mainTitleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
@@ -272,6 +274,17 @@ extension MainViewController {
             $0.top.bottom.equalToSuperview().inset(24)
             $0.leading.equalToSuperview().inset(16)
             $0.trailing.equalToSuperview().inset(210)
+        }
+        
+        cryptoCurrencyLabel.snp.makeConstraints {
+            $0.top.equalTo(startYourDigitalCatCollectinImageView.snp.bottom).offset(32)
+            $0.leading.equalToSuperview().offset(16)
+        }
+        
+        cryptoCurrencyButton.snp.makeConstraints {
+            $0.top.equalTo(startYourDigitalCatCollectinImageView.snp.bottom).offset(32)
+            $0.trailing.equalToSuperview().inset(16)
+            $0.size.equalTo(16)
         }
     }
     
