@@ -49,13 +49,19 @@ final class MainViewController: UIViewController {
     private lazy var bitcoinIconLabel = UILabel()
     private lazy var bitcoinNameLabel = UILabel()
     private lazy var bitcoinValueLabel = UILabel()
-    private lazy var cryptoArrowDownImage = UIImageView()
+    private lazy var bitcoinArrowDownImage = UIImageView()
     
     private lazy var ethereumIconView = UIView()
     private lazy var ethereumIconLabel = UILabel()
     private lazy var ethereumNameLabel = UILabel()
     private lazy var ethereumValueLabel = UILabel()
-    private lazy var cryptoArrowUpImage = UIImageView()
+    private lazy var ethereumArrowUpImage = UIImageView()
+    
+    private lazy var xrpIconView = UIView()
+    private lazy var xrpIconLabel = UILabel()
+    private lazy var xrpNameLabel = UILabel()
+    private lazy var xrpValueLabel = UILabel()
+    private lazy var xrpArrowUpImage = UIImageView()
 
 
 
@@ -162,14 +168,20 @@ extension MainViewController {
         bitcoinIconView.addSubview(bitcoinIconLabel)
         cryptoView.addSubview(bitcoinNameLabel)
         cryptoView.addSubview(bitcoinValueLabel)
-        cryptoView.addSubview(cryptoArrowDownImage)
+        cryptoView.addSubview(bitcoinArrowDownImage)
         
-        scrollContentView.addSubview(ethereumIconView)
         cryptoView.addSubview(ethereumIconView)
         ethereumIconView.addSubview(ethereumIconLabel)
         cryptoView.addSubview(ethereumNameLabel)
         cryptoView.addSubview(ethereumValueLabel)
-        cryptoView.addSubview(cryptoArrowUpImage)
+        cryptoView.addSubview(ethereumArrowUpImage)
+        
+        cryptoView.addSubview(xrpIconView)
+        xrpIconView.addSubview(xrpIconLabel)
+        cryptoView.addSubview(xrpNameLabel)
+        cryptoView.addSubview(xrpValueLabel)
+        cryptoView.addSubview(ethereumArrowUpImage)
+        cryptoView.addSubview(xrpArrowUpImage)
 
 
     }
@@ -249,7 +261,7 @@ extension MainViewController {
         bitcoinValueLabel.text = "57,039.1"
         bitcoinValueLabel.font = .systemFont(ofSize: 15, weight: .regular)
         
-        cryptoArrowDownImage.image = UIImage(named: "arrowDown")
+        bitcoinArrowDownImage.image = UIImage(named: "arrowDown")
         
         ethereumIconView.backgroundColor = .blue
         ethereumIconView.layer.cornerRadius = 10
@@ -262,9 +274,20 @@ extension MainViewController {
         ethereumNameLabel.font = .systemFont(ofSize: 15, weight: .regular)
         ethereumValueLabel.text = "1,782.23"
         ethereumValueLabel.font = .systemFont(ofSize: 15, weight: .regular)
+        ethereumArrowUpImage.image = UIImage(named: "arrowUp")
+
+        xrpIconView.backgroundColor = .blue
+        xrpIconView.layer.cornerRadius = 10
         
-        cryptoArrowDownImage.image = UIImage(named: "arrowDown")
-        cryptoArrowUpImage.image = UIImage(named: "arrowUp")
+        xrpIconLabel.text = "X"
+        xrpIconLabel.font = .systemFont(ofSize: 13, weight: .regular)
+        xrpIconLabel.textColor = .white
+        
+        xrpNameLabel.text = "XRP"
+        xrpNameLabel.font = .systemFont(ofSize: 15, weight: .regular)
+        xrpValueLabel.text = "0.574"
+        xrpValueLabel.font = .systemFont(ofSize: 15, weight: .regular)
+        xrpArrowUpImage.image = UIImage(named: "arrowUp")
 
     }
 
@@ -424,7 +447,7 @@ extension MainViewController {
             $0.trailing.equalToSuperview().inset(30)
         }
         
-        cryptoArrowDownImage.snp.makeConstraints {
+        bitcoinArrowDownImage.snp.makeConstraints {
             $0.top.equalToSuperview().offset(21)
             $0.leading.equalTo(bitcoinValueLabel.snp.trailing).offset(5)
             $0.width.equalTo(8.74)
@@ -455,14 +478,44 @@ extension MainViewController {
             $0.trailing.equalToSuperview().inset(30)
         }
 
-        cryptoArrowUpImage.snp.makeConstraints {
-            $0.top.equalTo(cryptoArrowDownImage.snp.bottom).offset(22)
+        ethereumArrowUpImage.snp.makeConstraints {
+            $0.top.equalTo(bitcoinArrowDownImage.snp.bottom).offset(23)
             $0.leading.equalTo(ethereumValueLabel.snp.trailing).offset(5)
             $0.width.equalTo(8.74)
             $0.height.equalTo(10)
-
         }
         
+        
+        
+        xrpIconView.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(16)
+            $0.top.equalTo(ethereumIconView.snp.bottom).offset(16)
+            $0.size.equalTo(20)
+        }
+        
+        xrpIconLabel.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().offset(6)
+            $0.top.bottom.equalToSuperview().inset(2)
+        }
+
+        xrpNameLabel.snp.makeConstraints {
+            $0.top.equalTo(ethereumNameLabel.snp.bottom).offset(16)
+            $0.leading.equalTo(xrpIconView.snp.trailing).offset(8)
+            $0.width.equalTo(30)
+            $0.height.equalTo(20)
+        }
+
+        xrpValueLabel.snp.makeConstraints {
+            $0.top.equalTo(ethereumValueLabel.snp.bottom).offset(16)
+            $0.trailing.equalToSuperview().inset(30)
+        }
+
+        xrpArrowUpImage.snp.makeConstraints {
+            $0.top.equalTo(ethereumArrowUpImage.snp.bottom).offset(24)
+            $0.leading.equalTo(xrpValueLabel.snp.trailing).offset(5)
+            $0.width.equalTo(8.74)
+            $0.height.equalTo(10)
+        }
     }
     
     func makeCardsCollectionViewFlowLayout() -> UICollectionViewFlowLayout {
