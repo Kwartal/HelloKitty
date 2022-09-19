@@ -37,8 +37,11 @@ final class MainViewController: UIViewController {
     private var cryptoCurrencyLabel = UILabel()
     private var cryptoCurrencyButton = UIButton()
     
-
+    private lazy var usdView = UIView()
+    private lazy var usdLabel = UILabel()
     
+    private lazy var eurView = UIView()
+    private lazy var eurLabel = UILabel()
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -129,6 +132,12 @@ extension MainViewController {
         startYourDigitalCatCollectinImageView.addSubview(startYourDigitalCatCollectinLabel)
         scrollContentView.addSubview(cryptoCurrencyLabel)
         scrollContentView.addSubview(cryptoCurrencyButton)
+        
+        scrollContentView.addSubview(usdView)
+        usdView.addSubview(usdLabel)
+        
+        scrollContentView.addSubview(eurView)
+        eurView.addSubview(eurLabel)
 
     }
     
@@ -181,6 +190,18 @@ extension MainViewController {
         cryptoCurrencyButton.setImage(UIImage(named: "backButton"), for: .normal)
         cryptoCurrencyButton.contentMode = .scaleAspectFill
 
+        
+        usdView.backgroundColor = .lightGray
+        usdView.layer.cornerRadius = 10
+        usdLabel.text = "USD"
+        usdLabel.font = .systemFont(ofSize: 12, weight: .regular)
+        
+        eurView.backgroundColor = UIColor(red: 0.804, green: 0.181, blue: 0.541, alpha: 1)
+        eurView.layer.cornerRadius = 10
+        eurLabel.text = "EUR"
+        eurLabel.font = .systemFont(ofSize: 12, weight: .regular)
+        eurLabel.textColor = .white
+        
     }
 
     private func configureConstraints() {
@@ -285,6 +306,29 @@ extension MainViewController {
             $0.top.equalTo(startYourDigitalCatCollectinImageView.snp.bottom).offset(32)
             $0.trailing.equalToSuperview().inset(16)
             $0.size.equalTo(16)
+        }
+        
+        usdView.snp.makeConstraints {
+            $0.top.equalTo(cryptoCurrencyLabel.snp.bottom).offset(16)
+            $0.leading.equalToSuperview().offset(16)
+            $0.width.equalTo(42)
+            $0.height.equalTo(22)
+        }
+        usdLabel.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview().inset(4)
+            $0.leading.bottom.equalToSuperview().offset(8)
+        }
+        
+        eurView.snp.makeConstraints {
+            $0.top.equalTo(cryptoCurrencyLabel.snp.bottom).offset(16)
+            $0.leading.equalTo(usdView.snp.trailing).offset(8)
+            $0.width.equalTo(42)
+            $0.height.equalTo(22)
+        }
+        
+        eurLabel.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview().inset(4)
+            $0.leading.bottom.equalToSuperview().offset(8)
         }
     }
     
