@@ -11,31 +11,31 @@ import SnapKit
 final class MainViewController: UIViewController {
     
     //MARK: - UI Elements
-    private lazy var mainTitleLabel = UILabel()
-    private lazy var scrollView = UIScrollView()
-    private lazy var scrollContentView = UIView()
-    private lazy var mainTitleImage = UIImageView()
-    private lazy var powerKittensView = UIView()
-    private lazy var powerKittensLabel = UILabel()
-    private lazy var powerKittensCounterLabel = UILabel()
-    private lazy var powerKittensImageView = UIImageView()
+    private var mainTitleLabel = UILabel()
+    private var scrollView = UIScrollView()
+    private var scrollContentView = UIView()
+    private var mainTitleImage = UIImageView()
+    private var powerKittensView = UIView()
+    private var powerKittensLabel = UILabel()
+    private var powerKittensCounterLabel = UILabel()
+    private var powerKittensImageView = UIImageView()
     
-    private lazy var cardsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: makeCardsCollectionViewFlowLayout())
+    private var cardsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: makeCardsCollectionViewFlowLayout())
     
-    private lazy var getYourOwnKittyLabel = UILabel()
-    private lazy var getYourOwnKittyButton = UIButton()
+    private var getYourOwnKittyLabel = UILabel()
+    private var getYourOwnKittyButton = UIButton()
     
-    private lazy var blueKittyCollectionView = UICollectionView(frame: .zero, collectionViewLayout: makeBlueKittyCollectionViewFlowLayout())
+    private var blueKittyCollectionView = UICollectionView(frame: .zero, collectionViewLayout: makeBlueKittyCollectionViewFlowLayout())
     
-    private lazy var collectionsLabel = UILabel()
-    private lazy var collectionsButton = UIButton()
+    private var collectionsLabel = UILabel()
+    private var collectionsButton = UIButton()
     
-    private lazy var pinkKittyCollectionView = UICollectionView(frame: .zero, collectionViewLayout: makePinkKittyCollectionViewFlowLayout())
-    private lazy var startYourDigitalCatCollectinImageView = UIImageView()
-    private lazy var startYourDigitalCatCollectinLabel = UILabel()
+    private var pinkKittyCollectionView = UICollectionView(frame: .zero, collectionViewLayout: makePinkKittyCollectionViewFlowLayout())
+    private var startYourDigitalCatCollectinImageView = UIImageView()
+    private var startYourDigitalCatCollectinLabel = UILabel()
     
-    private lazy var cryptoCurrencyLabel = UILabel()
-    private lazy var cryptoCurrencyButton = UIButton()
+    private var cryptoCurrencyLabel = UILabel()
+    private var cryptoCurrencyButton = UIButton()
     
     
     //MARK: - Life Cycle

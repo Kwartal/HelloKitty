@@ -17,7 +17,6 @@ final class CardsCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-
         configureUI()
         createConstraints()
     }
@@ -34,7 +33,6 @@ final class CardsCollectionViewCell: UICollectionViewCell {
         cardImage.image = UIImage(named: card.imageName)
         contentView.backgroundColor = card.color
     }
-
 }
 
 // MARK: - Layout
@@ -58,7 +56,6 @@ extension CardsCollectionViewCell {
 
         subCardTitleLabel.font = .systemFont(ofSize: 12, weight: .regular)
         cardImage.contentMode = .center
-        
     }
 
     private func createConstraints() {

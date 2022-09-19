@@ -19,8 +19,7 @@ struct PinkKitty {
         self.isKittyButtonHidden = isKittyButtonHidden
     }
     
-    
-    static let mockPinkKitty = [
+     static let mockPinkKitty = [
         
         PinkKitty(imageName: "pinkKitty1", title: "Hackatao", isKittyButtonHidden: false),
         PinkKitty(imageName: "pinkKitty2", title: "Onyx, Shale, Egyptiankohl", isKittyButtonHidden: false),

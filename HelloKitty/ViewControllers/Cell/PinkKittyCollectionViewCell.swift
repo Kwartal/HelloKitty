@@ -57,7 +57,6 @@ extension PinkKittyCollectionViewCell {
             $0.bottom.equalToSuperview().inset(52)
             $0.trailing.equalToSuperview().inset(85)
         }
-//        nameImage.backgroundColor = .red
         titleLabel.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(12)
             $0.top.equalTo(nameImage.snp.bottom).offset(8)
