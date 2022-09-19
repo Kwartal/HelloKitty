@@ -20,17 +20,17 @@ final class MainViewController: UIViewController {
     private var powerKittensCounterLabel = UILabel()
     private var powerKittensImageView = UIImageView()
     
-    private var cardsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: makeCardsCollectionViewFlowLayout())
+    private  lazy var cardsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: makeCardsCollectionViewFlowLayout())
     
     private var getYourOwnKittyLabel = UILabel()
     private var getYourOwnKittyButton = UIButton()
     
-    private var blueKittyCollectionView = UICollectionView(frame: .zero, collectionViewLayout: makeBlueKittyCollectionViewFlowLayout())
+    private lazy var blueKittyCollectionView = UICollectionView(frame: .zero, collectionViewLayout: makeBlueKittyCollectionViewFlowLayout())
     
     private var collectionsLabel = UILabel()
     private var collectionsButton = UIButton()
     
-    private var pinkKittyCollectionView = UICollectionView(frame: .zero, collectionViewLayout: makePinkKittyCollectionViewFlowLayout())
+    private lazy var pinkKittyCollectionView = UICollectionView(frame: .zero, collectionViewLayout: makePinkKittyCollectionViewFlowLayout())
     private var startYourDigitalCatCollectinImageView = UIImageView()
     private var startYourDigitalCatCollectinLabel = UILabel()
     
