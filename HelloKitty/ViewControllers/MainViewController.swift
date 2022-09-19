@@ -62,6 +62,9 @@ final class MainViewController: UIViewController {
     private lazy var xrpNameLabel = UILabel()
     private lazy var xrpValueLabel = UILabel()
     private lazy var xrpArrowUpImage = UIImageView()
+    
+    private lazy var youCanBreedAndAdoptImageView = UIImageView()
+    private lazy var youCanBreedAndAdoptTittleLabel = UILabel()
 
 
 
@@ -182,6 +185,9 @@ extension MainViewController {
         cryptoView.addSubview(xrpValueLabel)
         cryptoView.addSubview(ethereumArrowUpImage)
         cryptoView.addSubview(xrpArrowUpImage)
+        
+        scrollContentView.addSubview(youCanBreedAndAdoptImageView)
+        youCanBreedAndAdoptImageView.addSubview(youCanBreedAndAdoptTittleLabel)
 
 
     }
@@ -288,6 +294,15 @@ extension MainViewController {
         xrpValueLabel.text = "0.574"
         xrpValueLabel.font = .systemFont(ofSize: 15, weight: .regular)
         xrpArrowUpImage.image = UIImage(named: "arrowUp")
+        
+        youCanBreedAndAdoptImageView.image = UIImage(named: "youCanBreedAndAdopt")
+        
+        youCanBreedAndAdoptTittleLabel.text = "You can breed and adopt of all colours and shapes"
+        youCanBreedAndAdoptTittleLabel.font = .systemFont(ofSize: 16, weight: .bold)
+        youCanBreedAndAdoptTittleLabel.textColor = .white
+        youCanBreedAndAdoptTittleLabel.numberOfLines = 0
+        youCanBreedAndAdoptTittleLabel.adjustsFontSizeToFitWidth = true
+        
 
     }
 
@@ -515,6 +530,18 @@ extension MainViewController {
             $0.leading.equalTo(xrpValueLabel.snp.trailing).offset(5)
             $0.width.equalTo(8.74)
             $0.height.equalTo(10)
+        }
+        
+        youCanBreedAndAdoptImageView.snp.makeConstraints {
+            $0.top.equalTo(cryptoView.snp.bottom).offset(16)
+            $0.leading.trailing.equalToSuperview().inset(16)
+        }
+        
+        youCanBreedAndAdoptTittleLabel.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview().inset(24)
+            $0.leading.equalToSuperview().offset(16)
+            $0.width.equalTo(196)
+            $0.height.equalTo(40)
         }
     }
     
