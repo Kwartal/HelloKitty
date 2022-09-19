@@ -43,6 +43,24 @@ final class MainViewController: UIViewController {
     private lazy var eurView = UIView()
     private lazy var eurLabel = UILabel()
     
+    private lazy var cryptoView = UIView()
+    
+    private lazy var bitcoinIconView = UIView()
+    private lazy var bitcoinIconLabel = UILabel()
+    private lazy var bitcoinNameLabel = UILabel()
+    private lazy var bitcoinValueLabel = UILabel()
+    private lazy var cryptoArrowDownImage = UIImageView()
+    
+    private lazy var ethereumIconView = UIView()
+    private lazy var ethereumIconLabel = UILabel()
+    private lazy var ethereumNameLabel = UILabel()
+    private lazy var ethereumValueLabel = UILabel()
+    private lazy var cryptoArrowUpImage = UIImageView()
+
+
+
+
+    
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -138,6 +156,21 @@ extension MainViewController {
         
         scrollContentView.addSubview(eurView)
         eurView.addSubview(eurLabel)
+        
+        scrollContentView.addSubview(cryptoView)
+        cryptoView.addSubview(bitcoinIconView)
+        bitcoinIconView.addSubview(bitcoinIconLabel)
+        cryptoView.addSubview(bitcoinNameLabel)
+        cryptoView.addSubview(bitcoinValueLabel)
+        cryptoView.addSubview(cryptoArrowDownImage)
+        
+        scrollContentView.addSubview(ethereumIconView)
+        cryptoView.addSubview(ethereumIconView)
+        ethereumIconView.addSubview(ethereumIconLabel)
+        cryptoView.addSubview(ethereumNameLabel)
+        cryptoView.addSubview(ethereumValueLabel)
+        cryptoView.addSubview(cryptoArrowUpImage)
+
 
     }
     
@@ -190,7 +223,6 @@ extension MainViewController {
         cryptoCurrencyButton.setImage(UIImage(named: "backButton"), for: .normal)
         cryptoCurrencyButton.contentMode = .scaleAspectFill
 
-        
         usdView.backgroundColor = .lightGray
         usdView.layer.cornerRadius = 10
         usdLabel.text = "USD"
@@ -202,6 +234,38 @@ extension MainViewController {
         eurLabel.font = .systemFont(ofSize: 12, weight: .regular)
         eurLabel.textColor = .white
         
+        cryptoView.backgroundColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
+        cryptoView.layer.cornerRadius = 8
+        
+        bitcoinIconView.backgroundColor = .blue
+        bitcoinIconView.layer.cornerRadius = 10
+        
+        bitcoinIconLabel.text = "₿"
+        bitcoinIconLabel.font = .systemFont(ofSize: 13, weight: .regular)
+        bitcoinIconLabel.textColor = .white
+        
+        bitcoinNameLabel.text = "Bitcoin"
+        bitcoinNameLabel.font = .systemFont(ofSize: 15, weight: .regular)
+        bitcoinValueLabel.text = "57,039.1"
+        bitcoinValueLabel.font = .systemFont(ofSize: 15, weight: .regular)
+        
+        cryptoArrowDownImage.image = UIImage(named: "arrowDown")
+        
+        ethereumIconView.backgroundColor = .blue
+        ethereumIconView.layer.cornerRadius = 10
+        
+        ethereumIconLabel.text = "E"
+        ethereumIconLabel.font = .systemFont(ofSize: 13, weight: .regular)
+        ethereumIconLabel.textColor = .white
+        
+        ethereumNameLabel.text = "Ethereum"
+        ethereumNameLabel.font = .systemFont(ofSize: 15, weight: .regular)
+        ethereumValueLabel.text = "1,782.23"
+        ethereumValueLabel.font = .systemFont(ofSize: 15, weight: .regular)
+        
+        cryptoArrowDownImage.image = UIImage(named: "arrowDown")
+        cryptoArrowUpImage.image = UIImage(named: "arrowUp")
+
     }
 
     private func configureConstraints() {
@@ -330,6 +394,75 @@ extension MainViewController {
             $0.top.bottom.equalToSuperview().inset(4)
             $0.leading.bottom.equalToSuperview().offset(8)
         }
+        
+        cryptoView.snp.makeConstraints {
+            $0.top.equalTo(eurLabel.snp.bottom).offset(16)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.width.equalTo(343)
+            $0.height.equalTo(124)
+        }
+        
+        bitcoinIconView.snp.makeConstraints {
+            $0.leading.top.equalToSuperview().offset(16)
+            $0.size.equalTo(20)
+        }
+        
+        bitcoinIconLabel.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().offset(6)
+            $0.top.bottom.equalToSuperview().inset(2)
+        }
+        
+        bitcoinNameLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(16)
+            $0.leading.equalTo(bitcoinIconView.snp.trailing).offset(8)
+            $0.width.equalTo(48)
+            $0.height.equalTo(20)
+        }
+        
+        bitcoinValueLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().inset(30)
+        }
+        
+        cryptoArrowDownImage.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(21)
+            $0.leading.equalTo(bitcoinValueLabel.snp.trailing).offset(5)
+            $0.width.equalTo(8.74)
+            $0.height.equalTo(10)
+            
+        }
+        
+        ethereumIconView.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(16)
+            $0.top.equalTo(bitcoinIconView.snp.bottom).offset(16)
+            $0.size.equalTo(20)
+        }
+        
+        ethereumIconLabel.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().offset(6)
+            $0.top.bottom.equalToSuperview().inset(2)
+        }
+
+        ethereumNameLabel.snp.makeConstraints {
+            $0.top.equalTo(bitcoinNameLabel.snp.bottom).offset(16)
+            $0.leading.equalTo(ethereumIconView.snp.trailing).offset(8)
+            $0.width.equalTo(66)
+            $0.height.equalTo(20)
+        }
+
+        ethereumValueLabel.snp.makeConstraints {
+            $0.top.equalTo(bitcoinValueLabel.snp.bottom).offset(16)
+            $0.trailing.equalToSuperview().inset(30)
+        }
+
+        cryptoArrowUpImage.snp.makeConstraints {
+            $0.top.equalTo(cryptoArrowDownImage.snp.bottom).offset(22)
+            $0.leading.equalTo(ethereumValueLabel.snp.trailing).offset(5)
+            $0.width.equalTo(8.74)
+            $0.height.equalTo(10)
+
+        }
+        
     }
     
     func makeCardsCollectionViewFlowLayout() -> UICollectionViewFlowLayout {
