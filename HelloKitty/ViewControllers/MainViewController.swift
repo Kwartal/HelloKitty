@@ -66,10 +66,6 @@ final class MainViewController: UIViewController {
     private lazy var youCanBreedAndAdoptImageView = UIImageView()
     private lazy var youCanBreedAndAdoptTittleLabel = UILabel()
 
-
-
-
-    
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,7 +84,7 @@ extension MainViewController {
         blueKittyCollectionView.register(BlueKittyCollectionViewCell.self, forCellWithReuseIdentifier: BlueKittyCollectionViewCell.identifier)
         blueKittyCollectionView.delegate = self
         blueKittyCollectionView.dataSource = self
-    
+
         pinkKittyCollectionView.register(PinkKittyCollectionViewCell.self, forCellWithReuseIdentifier: PinkKittyCollectionViewCell.identifier)
         pinkKittyCollectionView.delegate = self
         pinkKittyCollectionView.dataSource = self
@@ -97,8 +93,8 @@ extension MainViewController {
 
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       
         return Card.mockCardsData.count
+
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -113,7 +109,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.layer.shadowOffset = CGSize.zero
             cell.layer.shadowRadius = 6
             return cell
-        } 
+        }
         
         else if(collectionView == cardsCollectionView)
         {
@@ -199,7 +195,7 @@ extension MainViewController {
         mainTitleLabel.font = .systemFont(ofSize: 24, weight: .heavy)
         
         scrollView.backgroundColor = .white
-        scrollView.contentSize = CGSize(width: 0, height: 921)
+        scrollView.contentSize = CGSize(width: 0, height: 1000)
         
         mainTitleImage.image = UIImage(named: "Title Image Kitty")
         
@@ -303,7 +299,6 @@ extension MainViewController {
         youCanBreedAndAdoptTittleLabel.numberOfLines = 0
         youCanBreedAndAdoptTittleLabel.adjustsFontSizeToFitWidth = true
         
-
     }
 
     private func configureConstraints() {
